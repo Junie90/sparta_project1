@@ -24,7 +24,7 @@ def listing():
         }
     }
     cafes = list(db.cafes.find(query, {'_id': False}))
-    return jsonify({"message": "좋았어 성공이야", "cafes": cafes})
+    return jsonify({"cafes": cafes})
 
 
 if __name__ == '__main__':
