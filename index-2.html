@@ -138,16 +138,16 @@
             color: rgb(90, 90, 90);
         }
         .view img{
-            width: 25px;
-            height: 13px;
+            width: 24px;
+            height: 24px;
             margin-right: 3px;
         }
         .review_a{
         margin-left: 150px;
         }
         .review_a img{
-            width: 25px;
-            height: 13px;
+            width: 24px;
+            height: 24px;
             margin-right: 3px;
         }
         .review_a a:hover{
@@ -194,20 +194,20 @@
             data: {},
             success: function (response) { // 성공하면
                 $('#card-box').empty();
-                alert(response['message']);
                 let cafes = response['cafes']
                 for(let i=0; i < cafes.length; i++){
                     let { name, img_url, count_hit, rate, count_favorite, address, cafe_url } = cafes[i]
                     let temp_html = `
                     <div class="card">
-                        <img class="card-img-top" src="https://via.placeholder.com/180" alt="Card image cap">
+                        <img class="card-img-top" src="${img_url}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">${name}<span class="star">${rate}</span></h5>
                             <p class="card-text">${address}</p>
+                            <p class="card-text">전화번호: <span>${number}</span></p>
+                            <p class="card-text">영업시간: <span>${business_hours}</span> </p>
                             <p class="review">
                             <span class="view"> <img src="../static/image/eye.png" alt="eye">View</span><span class="view_number">(${count_hit})</span>
-                            <a class="review_a" href="#"><img src="../static/image/review.png" alt="review">Review<span class="review_number">review</span></a>
-                            <span class="view"> <img src="" alt="eye">like</span><span class="view_number">(${count_favorite})</span>
+                            <span class="view"> <img src="../static/image/thumbsup.png" alt="thumbsup">like</span><span class="view_number">(${count_favorite})</span>
                             </p>
                             <a href="${cafe_url}" class="btn btn-primary"> 더 보기 > </a>
                         </div>
@@ -298,7 +298,7 @@
                                   d="M 323 470 l 6 1 11 2 7 0 9 -1 7 3 2 2 3 -1 7 -3 2 6 0 11 6 10 5 4 3 2 14 0 5 2 2 8 4 6 3 4 0 11 1 5 -9 4 -7 2 -3 1 -5 4 -5 7 -8 5 -2 7 -1 5 -5 2 -9 2 -9 1 -10 2 -4 2 -2 0 -3 -5 -2 -6 -5 -4 -5 -7 -4 -4 -2 -6 -5 -4 -3 -4 -8 -3 -4 -8 -1 -6 -3 -6 -3 -6 3 -8 -3 -10 -6 -1 -11 1 4 -5 3 -5 12 -3 2 -1 4 -3 10 -4 6 -1 z "/></a>
                             <a href="#" onclick="loadCafes('서초')"><path id="CD11650" class="OUTLINE seocho"
                                   d="M 460 413 l 1 0 2 -3 6 9 1 6 0 1 3 9 5 15 5 13 6 17 7 10 6 -1 5 5 1 3 4 9 7 13 3 5 6 -2 4 0 6 -1 9 -2 8 -4 5 -3 2 -2 11 0 4 8 2 3 5 6 2 7 4 4 1 7 -5 8 -6 10 0 6 -6 4 -4 4 -5 0 -4 -1 -4 0 -2 6 -2 8 -1 4 -1 2 1 3 -4 0 -10 2 -9 0 -8 0 -7 -4 -4 -6 -5 -5 -4 -2 -5 -4 1 -5 2 -4 -1 -8 0 -5 -2 -4 2 -5 0 -1 -3 -4 -2 -9 -2 -6 -5 0 -2 7 -3 6 -6 4 -8 2 -4 1 -2 0 -6 -3 -3 -3 0 0 -1 -2 -3 -6 -2 -8 -8 -2 -5 3 1 3 0 1 -4 4 -6 3 -4 3 -1 -5 0 -11 -3 -4 -4 -6 -2 -8 0 -9 0 -8 1 -11 0 -6 2 -11 -2 -8 -4 -5 0 0 3 -4 7 -3 5 -8 8 -8 5 -3 5 -4 5 -5 5 -4 3 -4 z "/></a>
-                            <a href="#" onclick="loadCafes('강남')"><path id="CD11680" class="OUTLINE gangnam"
+                            <a href="#" onclick="loadCafes('강남구')"><path id="CD11680" class="OUTLINE gangnam"
                                   d="M 503 387 l 10 3 4 4 5 3 7 4 7 4 12 5 0 10 0 4 1 13 1 6 1 10 6 2 7 1 6 2 3 2 12 4 5 2 5 3 6 3 5 4 5 5 3 6 3 5 3 5 4 7 2 2 5 10 3 4 4 5 -10 11 -2 6 -4 0 -3 -4 -9 -2 -4 0 0 2 -1 1 -3 3 -11 3 -1 -7 -4 -4 -2 -7 -5 -6 -2 -3 -4 -8 -11 0 -2 2 -5 3 -8 4 -9 2 -6 1 -4 0 -6 2 -3 -5 -7 -13 -4 -9 -1 -3 -5 -5 -6 1 -7 -10 -6 -17 -5 -13 -5 -15 -3 -9 0 -1 -1 -6 -6 -9 -2 3 -1 0 -7 -6 5 -6 4 -5 4 -5 8 -4 12 0 7 0 z "/></a>
                             <a href="#" onclick="loadCafes('송파')"><path id="CD11710" class="OUTLINE songpa"
                                   d="M 621 374 l 6 2 4 2 4 4 0 8 -2 5 -1 3 0 7 5 2 8 5 5 3 8 4 3 2 5 3 5 2 -4 3 0 6 -3 10 4 5 5 3 10 0 9 3 5 5 -1 4 -2 7 -3 9 -4 3 -5 4 -5 5 -2 6 -3 7 -5 5 -10 0 -6 0 0 8 -4 5 -6 -2 -2 -1 -1 4 -4 -5 -3 -4 -5 -10 -2 -2 -4 -7 -3 -5 -3 -5 -3 -6 -5 -5 -5 -4 -6 -3 -5 -3 -5 -2 -12 -4 -3 -2 -6 -2 -7 -1 -6 -2 -1 -10 -1 -6 -1 -13 0 -4 0 -10 6 2 5 1 5 1 5 -1 6 -3 8 -5 3 -2 3 -3 11 -12 5 -4 5 -5 4 -5 z "/></a>
@@ -336,6 +336,20 @@
                     </svg>
                 </div>
                 <div id="card-box">
+                    <div class="card">
+                        <img class="card-img-top" src="https://via.placeholder.com/180" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">1. 연건동 스타벅스 <span class="star">4.5</span></h5>
+                            <p class="card-text">주소: <span>서울시 종로구 연건동 362-56</span></p>
+                            <p class="card-text">전화번호: <span>02-333-8888</span></p>
+                            <p class="card-text">영업시간: <span>09:00-20:00</span> </p>
+                            <p class="review">
+                                <span class="view"> <img src="../static/image/eye.png" alt="eye">View</span><span class="view_number">(2)</span>
+                                <a class="review_a" href="#"> <img src="../static/image/thumbsup.png" alt="Like">Like<span class="review_number">(2)</span></a>
+                            </p>
+                            <a href="#" class="btn btn-primary"> 더 보기 > </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
